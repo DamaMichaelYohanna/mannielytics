@@ -1,0 +1,252 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ action }} Course - Admin Dashboard{% endblock %}
+
+{% block content %}
+<!-- Dashboard Header -->
+<section class="bg-white shadow-sm border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex items-center justify-between">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-900">{{ action }} Course</h1>
+                <p class="text-gray-600">
+                    {% if action == 'Add' %}
+                    Create a new course for your catalog
+                    {% else %}
+                    Update course information and content
+                    {% endif %}
+                </p>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{% url 'dashboard:manage_courses' %}" 
+                   class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                    ← Back to Courses
+                </a>
+                <a href="{% url 'dashboard:admin_logout' %}" 
+                   class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Course Form -->
+<section class="py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <h2 class="text-lg font-medium text-gray-900">
+                    {% if action == 'Add' %}
+                    New Course Details
+                    {% else %}
+                    Edit Course: {{ course.title }}
+                    {% endif %}
+                </h2>
+            </div>
+            
+            <form method="post" enctype="multipart/form-data" class="p-6 space-y-6">
+                {% csrf_token %}
+                
+                <!-- Basic Information -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="{{ form.title.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
+                            Course Title *
+                        </label>
+                        {{ form.title }}
+                        {% if form.title.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.title.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+                    
+                    <div>
+                        <label for="{{ form.duration.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
+                            Duration *
+                        </label>
+                        {{ form.duration }}
+                        {% if form.duration.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.duration.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="{{ form.price.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
+                            Price (₦)
+                        </label>
+                        {{ form.price }}
+                        {% if form.price.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.price.errors.0 }}</p>
+                        {% endif %}
+                        <p class="mt-1 text-sm text-gray-500">Set to 0 for free courses</p>
+                    </div>
+                    
+                    <div>
+                        <label for="{{ form.image.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
+                            Course Image
+                        </label>
+                        {{ form.image }}
+                        {% if form.image.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ form.image.errors.0 }}</p>
+                        {% endif %}
+                        <p class="mt-1 text-sm text-gray-500">Recommended size: 800x600 pixels</p>
+                    </div>
+                </div>
+                
+                <!-- Description -->
+                <div>
+                    <label for="{{ form.short_description.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
+                        Short Description
+                    </label>
+                    {{ form.short_description }}
+                    {% if form.short_description.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ form.short_description.errors.0 }}</p>
+                    {% endif %}
+                    <p class="mt-1 text-sm text-gray-500">Brief overview (max 300 characters)</p>
+                </div>
+                
+                <div>
+                    <label for="{{ form.description.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
+                        Full Description *
+                    </label>
+                    {{ form.description }}
+                    {% if form.description.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ form.description.errors.0 }}</p>
+                    {% endif %}
+                    <p class="mt-1 text-sm text-gray-500">Detailed course description and learning objectives</p>
+                </div>
+                
+                <!-- Features -->
+                <div>
+                    <label for="{{ form.features.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
+                        Course Features *
+                    </label>
+                    {{ form.features }}
+                    {% if form.features.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ form.features.errors.0 }}</p>
+                    {% endif %}
+                    <p class="mt-1 text-sm text-gray-500">Enter each feature on a new line (e.g., "Hands-on projects", "Industry certification", "24/7 support")</p>
+                </div>
+                
+                <!-- Settings -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-center">
+                        {{ form.certification }}
+                        <label for="{{ form.certification.id_for_label }}" class="ml-3 text-sm font-medium text-gray-700">
+                            Include Certificate
+                        </label>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        {{ form.is_active }}
+                        <label for="{{ form.is_active.id_for_label }}" class="ml-3 text-sm font-medium text-gray-700">
+                            Course Active
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Form Actions -->
+                <div class="flex items-center justify-between pt-6 border-t border-gray-200">
+                    <a href="{% url 'dashboard:manage_courses' %}" 
+                       class="px-6 py-3 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors duration-300">
+                        Cancel
+                    </a>
+                    
+                    <button type="submit" 
+                            class="px-6 py-3 bg-brand-green text-white rounded-md text-sm font-medium hover:bg-green-700 transition-colors duration-300">
+                        {% if action == 'Add' %}
+                        Create Course
+                        {% else %}
+                        Update Course
+                        {% endif %}
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Preview Section -->
+        {% if action == 'Edit' and course %}
+        <div class="mt-8 bg-white shadow-lg rounded-lg overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <h3 class="text-lg font-medium text-gray-900">Course Preview</h3>
+                <p class="text-sm text-gray-600">How your course will appear to students</p>
+            </div>
+            
+            <div class="p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Course Image Preview -->
+                    <div class="lg:col-span-1">
+                        {% if course.image %}
+                        <img src="{{ course.image.url }}" alt="{{ course.title }}" class="w-full h-48 object-cover rounded-lg shadow-md">
+                        {% else %}
+                        <div class="w-full h-48 bg-gradient-to-br from-brand-green to-green-700 rounded-lg shadow-md flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Course Info Preview -->
+                    <div class="lg:col-span-2">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-3">{{ course.title }}</h4>
+                        
+                        {% if course.short_description %}
+                        <p class="text-gray-600 mb-4">{{ course.short_description }}</p>
+                        {% endif %}
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <span class="text-sm font-medium text-gray-500">Duration:</span>
+                                <p class="text-sm text-gray-900">{{ course.duration }}</p>
+                            </div>
+                            <div>
+                                <span class="text-sm font-medium text-gray-500">Price:</span>
+                                <p class="text-sm text-gray-900">
+                                    {% if course.price > 0 %}
+                                    ₦{{ course.price|floatformat:0 }}
+                                    {% else %}
+                                    Free
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div>
+                                <span class="text-sm font-medium text-gray-500">Status:</span>
+                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full {% if course.is_active %}bg-green-100 text-green-800{% else %}bg-red-100 text-red-800{% endif %}">
+                                    {% if course.is_active %}Active{% else %}Inactive{% endif %}
+                                </span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-medium text-gray-500">Certificate:</span>
+                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full {% if course.certification %}bg-green-100 text-green-800{% else %}bg-gray-100 text-gray-800{% endif %}">
+                                    {% if course.certification %}Included{% else %}Not Included{% endif %}
+                                </span>
+                            </div>
+                        </div>
+                        
+                        {% if course.features %}
+                        <div>
+                            <span class="text-sm font-medium text-gray-500">Key Features:</span>
+                            <ul class="mt-2 space-y-1">
+                                {% for feature in course.get_features_list|slice:":5" %}
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-brand-green mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    {{ feature }}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+
