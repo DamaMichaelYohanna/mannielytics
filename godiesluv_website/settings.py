@@ -13,6 +13,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 from pathlib import Path
 import os
 import urllib.parse as urlparse
+import dj_database_url
+try:
+    from decouple import config as env_config
+except Exception:
+    env_config = None
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,12 +30,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a$t_84yb#wlri)=d6hlb*b&5y%y^-33j4iw$tfwi3=$jd6+qtk'
+if env_config:
+    SECRET_KEY = env_config('DJANGO_SECRET_KEY', default='change-me')
+else:
+    SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'change-me')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if env_config:
+    DEBUG = env_config('DEBUG', default=True, cast=bool)
+else:
+    DEBUG = os.getenv('DEBUG', 'True').lower() in ('1', 'true', 'yes', 'on')
 
-ALLOWED_HOSTS = ['*', 'godisluv.vercel.app', 'www.godisluv.vercel.app']
+if env_config:
+    ALLOWED_HOSTS = env_config('ALLOWED_HOSTS', default='*').split(',')
+else:
+    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 
 
 # Application definition
@@ -42,6 +58,8 @@ INSTALLED_APPS = [
     'core',
     'courses',
     'dashboard',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -141,9 +159,17 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-# Media files (Uploaded files)
+# Media files (Uploaded files) via Cloudinary
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+
+# Cloudinary configuration via environment
+cloudinary.config(
+    cloud_name=(env_config('CLOUDINARY_CLOUD_NAME', default='') if env_config else os.getenv('CLOUDINARY_CLOUD_NAME', '')),
+    api_key=(env_config('CLOUDINARY_API_KEY', default='') if env_config else os.getenv('CLOUDINARY_API_KEY', '')),
+    api_secret=(env_config('CLOUDINARY_API_SECRET', default='') if env_config else os.getenv('CLOUDINARY_API_SECRET', '')),
+    secure=True
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

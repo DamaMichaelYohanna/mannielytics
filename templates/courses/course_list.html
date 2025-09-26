@@ -129,7 +129,7 @@
                             {% if course.price > 0 %}
                             ₦{{ course.price|floatformat:0 }}
                             {% else %}
-                            Free
+                            ----
                             {% endif %}
                         </div>
                         <a href="{% url 'courses:course_detail' course.pk %}" 
