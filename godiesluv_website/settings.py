@@ -14,13 +14,12 @@ from pathlib import Path
 import os
 import urllib.parse as urlparse
 import dj_database_url
-try:
-    from decouple import config as env_config
-except Exception:
-    env_config = None
+from dotenv import load_dotenv
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,20 +29,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-if env_config:
-    SECRET_KEY = env_config('DJANGO_SECRET_KEY', default='change-me')
-else:
-    SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'change-me')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'change-me')
 
-if env_config:
-    DEBUG = env_config('DEBUG', default=True, cast=bool)
-else:
-    DEBUG = os.getenv('DEBUG', 'True').lower() in ('1', 'true', 'yes', 'on')
+DEBUG = os.getenv('DEBUG', 'True').lower() in ('1', 'true', 'yes', 'on')
 
-if env_config:
-    ALLOWED_HOSTS = env_config('ALLOWED_HOSTS', default='*').split(',')
-else:
-    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 
 
 # Application definition
@@ -109,7 +99,7 @@ if not DEBUG:
     STATIC_URL = "static/"
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'main', 'static'),
+        os.path.join(BASE_DIR, 'static'),
     ]
     DATABASES = {
         'default': dj_database_url.config(
@@ -149,25 +139,15 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
-
 # Media files (Uploaded files) via Cloudinary
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
 
 # Cloudinary configuration via environment
 cloudinary.config(
-    cloud_name=(env_config('CLOUDINARY_CLOUD_NAME', default='') if env_config else os.getenv('CLOUDINARY_CLOUD_NAME', '')),
-    api_key=(env_config('CLOUDINARY_API_KEY', default='') if env_config else os.getenv('CLOUDINARY_API_KEY', '')),
-    api_secret=(env_config('CLOUDINARY_API_SECRET', default='') if env_config else os.getenv('CLOUDINARY_API_SECRET', '')),
+    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME', ''),
+    api_key=os.getenv('CLOUDINARY_API_KEY', ''),
+    api_secret=os.getenv('CLOUDINARY_API_SECRET', ''),
     secure=True
 )
 
