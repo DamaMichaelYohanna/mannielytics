@@ -60,7 +60,7 @@
                 {% endif %}
                 
                 <!-- Course Curriculum -->
-                <div class="mb-8">
+                <!-- <div class="mb-8">
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">Course Curriculum</h2>
                     <div class="bg-gray-50 rounded-lg p-6">
                         <div class="space-y-4">
@@ -105,10 +105,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
                 <!-- Instructor Information -->
-                <div class="mb-8">
+                <!-- <div class="mb-8">
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">Meet Your Instructor</h2>
                     <div class="bg-gray-50 rounded-lg p-6">
                         <div class="flex items-center">
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             
             <!-- Sidebar -->
@@ -135,11 +135,9 @@
                         <div class="text-3xl font-bold text-brand-green mb-2">
                             {% if course.price > 0 %}
                             ₦{{ course.price|floatformat:0 }}
-                            {% else %}
-                            Free
+                            
                             {% endif %}
                         </div>
-                        <p class="text-gray-600">One-time payment</p>
                     </div>
                     
                     <div class="space-y-4 mb-6">
@@ -219,7 +217,7 @@
 </section>
 
 <!-- Related Courses Section -->
-<section class="py-20 bg-gray-50">
+<!-- <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-3xl font-bold text-gray-900 mb-4">You Might Also Like</h2>
@@ -227,7 +225,6 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Related Course 1 -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div class="w-full h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
                     <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -246,7 +243,6 @@
                 </div>
             </div>
             
-            <!-- Related Course 2 -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div class="w-full h-48 bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
                     <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -265,7 +261,6 @@
                 </div>
             </div>
             
-            <!-- Related Course 3 -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div class="w-full h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
                     <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -285,7 +280,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Call to Action -->
 <section class="py-20 bg-brand-green text-white">
