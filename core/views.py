@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from courses.models import Course
-from .models import Message as ContactMessage
+from .models import Message as ContactMessage, TeamMember
 from django.contrib.auth.decorators import user_passes_test
 
 # Create your views here.
@@ -16,7 +16,11 @@ def home(request):
 
 def about(request):
     """About page view"""
-    return render(request, 'core/about.html')
+    team_members = TeamMember.objects.filter(is_active=True)
+    context = {
+        'team_members': team_members,
+    }
+    return render(request, 'core/about.html', context)
 
 def contact(request):
     """Contact page view"""

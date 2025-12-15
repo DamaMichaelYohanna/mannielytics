@@ -5,7 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from courses.models import Course
 from courses.forms import CourseForm
-from core.models import Message
+from core.models import Message, TeamMember
+from core.forms import TeamMemberForm
 
 def admin_login(request):
     """Admin login view"""
@@ -59,9 +60,24 @@ def messages_list(request):
         messages.error(request, 'Access denied. Staff privileges required.')
         return redirect('core:home')
 
-    msgs = Message.objects.all()
+    msgs = Message.objects.all().order_by('-created_at')
     context = { 'messages_list': msgs }
     return render(request, 'dashboard/messages.html', context)
+
+@login_required
+def delete_message(request, pk):
+    """Delete contact message"""
+    if not request.user.is_staff:
+        messages.error(request, 'Access denied. Staff privileges required.')
+        return redirect('core:home')
+    
+    if request.method == 'POST':
+        message = get_object_or_404(Message, pk=pk)
+        message_from = message.name
+        message.delete()
+        messages.success(request, f'Message from "{message_from}" deleted successfully!')
+    
+    return redirect('dashboard:messages_list')
 
 @login_required
 def add_course(request):
@@ -122,3 +138,81 @@ def delete_course(request, pk):
     course.delete()
     messages.success(request, f'Course "{course_title}" deleted successfully!')
     return redirect('dashboard:manage_courses')
+
+
+# Team Member Management Views
+@login_required
+def manage_team(request):
+    """Team member management dashboard"""
+    if not request.user.is_staff:
+        messages.error(request, 'Access denied. Staff privileges required.')
+        return redirect('core:home')
+    
+    team_members = TeamMember.objects.all().order_by('order', 'name')
+    context = {
+        'team_members': team_members,
+    }
+    return render(request, 'dashboard/manage_team.html', context)
+
+
+@login_required
+def add_team_member(request):
+    """Add new team member"""
+    if not request.user.is_staff:
+        messages.error(request, 'Access denied. Staff privileges required.')
+        return redirect('core:home')
+    
+    if request.method == 'POST':
+        form = TeamMemberForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Team member added successfully!')
+            return redirect('dashboard:manage_team')
+    else:
+        form = TeamMemberForm()
+    
+    context = {
+        'form': form,
+        'action': 'Add'
+    }
+    return render(request, 'dashboard/team_member_form.html', context)
+
+
+@login_required
+def edit_team_member(request, pk):
+    """Edit existing team member"""
+    if not request.user.is_staff:
+        messages.error(request, 'Access denied. Staff privileges required.')
+        return redirect('core:home')
+    
+    team_member = get_object_or_404(TeamMember, pk=pk)
+    
+    if request.method == 'POST':
+        form = TeamMemberForm(request.POST, request.FILES, instance=team_member)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Team member updated successfully!')
+            return redirect('dashboard:manage_team')
+    else:
+        form = TeamMemberForm(instance=team_member)
+    
+    context = {
+        'form': form,
+        'action': 'Edit',
+        'team_member': team_member
+    }
+    return render(request, 'dashboard/team_member_form.html', context)
+
+
+@login_required
+def delete_team_member(request, pk):
+    """Delete team member"""
+    if not request.user.is_staff:
+        messages.error(request, 'Access denied. Staff privileges required.')
+        return redirect('core:home')
+    
+    team_member = get_object_or_404(TeamMember, pk=pk)
+    member_name = team_member.name
+    team_member.delete()
+    messages.success(request, f'Team member "{member_name}" deleted successfully!')
+    return redirect('dashboard:manage_team')

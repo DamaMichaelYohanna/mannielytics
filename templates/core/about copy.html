@@ -406,40 +406,91 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {% for member in team_members %}
+      <!-- Engr. Dr. Godiya Yakubu -->
       <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 animate-slide-up h-full flex flex-col">
-        <img src="{{ member.image.url }}" alt="{{ member.name }}" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 shadow-md" loading="lazy">
-        <h3 class="text-2xl font-semibold text-gray-900 mb-2">{{ member.name }}</h3>
-        <p class="text-brand-green font-medium mb-4">{{ member.title }}</p>
+        <img src="{% static 'godiya-yakubu.jpeg' %}" alt="Engr. Dr. Godiya Yakubu" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 shadow-md" loading="lazy">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Engr. Dr. Godiya Yakubu</h3>
+        <p class="text-brand-green font-medium mb-4">CEO & Founder • System Engineer • International Scholar • ML, AI & Cybersecurity Specialist</p>
         <div class="space-y-4 text-gray-700 leading-relaxed">
-          {{ member.bio|linebreaks }}
+          <p>Dr. Godiya is a visionary system engineer, researcher, and educator whose work bridges the gap between advanced technology and real-world application. With a unique blend of academic excellence and industrial expertise, Dr. Godiya leads initiatives that empower communities through innovation, inclusive education, and strategic capacity building.</p>
+          <p>Currently serving as a System Engineer at ZF Automotive Systems, Poland, Dr. Godiya specializes in system requirements engineering, data architecture, and AI-embedded applications. His work focuses on optimizing machine learning algorithms for predictive performance in complex systems, backed by professional trainings in Artificial Intelligence, Machine Learning, and Cybersecurity.</p>
+          <p>In parallel, Dr. Godiya is an Independent Researcher and International Scholar at the Center for Embedded AI and Smart Energy Systems, ATBU Bauchi, where he lectures and mentors postgraduate students in advanced mechatronics, intelligent systems, and data-driven technologies. This dual engagement in both academia and industry ensures that his approach to training is globally relevant and practically grounded.</p>
         </div>
-        
-        {% if member.linkedin_url or member.portfolio_url or member.website_url or member.cv_url %}
+        <div class="mt-6 pt-6 border-t border-gray-200">
+          <a href="https://www.linkedin.com/in/godiya-yakubu-88616835" target="_blank" rel="noopener" class="text-brand-green font-semibold hover:underline">LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Samuel Ayankoso -->
+      <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 animate-slide-up delay-75 h-full flex flex-col">
+        <img src="{% static 'samuel-ayankoso.jpeg' %}" alt="Samuel Ayankoso" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 shadow-md" loading="lazy">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Samuel Ayankoso</h3>
+        <p class="text-brand-green font-medium mb-4">Program Director • Robotics & Machine Learning Researcher</p>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>Samuel is a robotics and machine learning researcher based in Huddersfield, United Kingdom, with a strong track record of leading complex projects, fostering team collaboration, and upholding high professional standards while delivering innovative and impactful results.</p>
+          <p>His research ranges from data-driven modelling of mechanical and mechatronic systems to the application of such models in control design, fault simulation, and digital twin development.</p>
+          <p>He believes in using data to discover the dynamic behavior of complex systems and to tell stories that are important to making smart business decisions.</p>
+        </div>
         <div class="mt-6 pt-6 border-t border-gray-200 flex flex-wrap gap-4">
-          {% if member.linkedin_url %}
-          <a href="{{ member.linkedin_url }}" target="_blank" rel="noopener" class="text-brand-green font-semibold hover:underline">LinkedIn</a>
-          {% endif %}
-          
-          {% if member.portfolio_url %}
-          <a href="{{ member.portfolio_url }}" target="_blank" rel="noopener" class="text-brand-green font-semibold hover:underline">Portfolio</a>
-          {% endif %}
-          
-          {% if member.website_url %}
-          <a href="{{ member.website_url }}" target="_blank" rel="noopener" class="text-brand-green font-semibold hover:underline">Website</a>
-          {% endif %}
-          
-          {% if member.cv_url %}
-          <a href="{{ member.cv_url }}" target="_blank" rel="noopener" class="text-brand-green font-semibold hover:underline">CV</a>
-          {% endif %}
+          <a href="https://www.linkedin.com/in/samuel-ayankoso/" target="_blank" rel="noopener" class="text-brand-green font-semibold hover:underline">LinkedIn</a>
+          <a href="https://sam.queslla.com/" target="_blank" rel="noopener" class="text-brand-green font-semibold hover:underline">Website</a>
         </div>
-        {% endif %}
       </div>
-      {% empty %}
-      <div class="col-span-full text-center py-12">
-        <p class="text-gray-600 text-lg">No team members to display at this time.</p>
+
+      <!-- Dr. Godwin Sani -->
+      <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 animate-slide-up delay-100 h-full flex flex-col">
+        <img src="{% static 'godwin-sani.jpeg' %}" alt="Dr. Godwin Sani" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 shadow-md" loading="lazy">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Dr. Godwin Sani</h3>
+        <p class="text-brand-green font-medium mb-4">Engineering Practitioner & AI Leader</p>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>Bridging the gap between theoretical research and real-world application. With a PhD from Lodz University of Technology, Dr. Sani applies 6+ years of expertise to designing cutting-edge solutions in robotics, control systems, and AI.</p>
+          <p>Currently advancing the field at a Government Space Research Centre and certified as a Generative AI leader by Google Cloud, he tackles complex technical challenges and delivers measurable results through intelligent automation.</p>
+          <p><span class="font-semibold">Expertise:</span> Mechatronics, Robotics, Control Theory, Artificial Intelligence, Machine Learning, Generative AI, Data Science.</p>
+        </div>
+        <div class="mt-6 pt-6 border-t border-gray-200">
+          <a href="https://www.linkedin.com/in/godwin-sani-a9b898139" target="_blank" rel="noopener" class="text-brand-green font-semibold hover:underline">LinkedIn</a>
+        </div>
       </div>
-      {% endfor %}
+
+      <!-- Ayobami Ismail Opeyemi -->
+      <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 animate-slide-up delay-150 h-full flex flex-col">
+        <img src="{% static 'ayobami-ismail-opeyemi.jpeg' %}" alt="Ayobami Ismail Opeyemi" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 shadow-md" loading="lazy">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Ayobami Ismail Opeyemi</h3>
+        <p class="text-brand-green font-medium mb-4">Mechatronics Engineer • AI Enthusiast • Technical Educator</p>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>Ayobami is a first-class graduate of Mechatronics and Systems Engineering from Abubakar Tafawa Balewa University (ATBU), Bauchi, with a strong foundation in computer systems, programming, and Artificial Intelligence. His expertise spans C, C++, Python, and MATLAB, applied in embedded systems, renewable energy, and simulations using MATLAB/Simulink.</p>
+          <p>Trained in professional presentation and soft skills at America Space, he excels at translating complex technical concepts into clear, engaging instruction. He is passionate about guiding students in computer appreciation and AI, fostering digital literacy, problem-solving, and innovative thinking.</p>
+        </div>
+        <div class="mt-6 pt-6 border-t border-gray-200 flex flex-wrap gap-4">
+          <a href="https://flowcv.com/resume/ih2kq6e7h6" target="_blank" rel="noopener" class="text-brand-green font-semibold hover:underline">CV</a>
+          <a href="https://ioayobami.vercel.app/" target="_blank" rel="noopener" class="text-brand-green font-semibold hover:underline">Portfolio</a>
+        </div>
+      </div>
+
+      <!-- Auwal Nasiru -->
+      <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 animate-slide-up delay-200 h-full flex flex-col">
+        <img src="{% static 'auwal-nasiru.jpeg' %}" alt="Auwal Nasiru" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 shadow-md" loading="lazy">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Auwal Nasiru</h3>
+        <p class="text-brand-green font-medium mb-4">Electrical Engineer • Embedded AI & Smart Energy Systems Specialist</p>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>Auwal is a technically proficient electrical engineer with a strong foundation in power systems and intelligent automation. He holds a B.Eng. in Electrical and Electronics Engineering from ATBU, Bauchi, and is pursuing a Master’s in Embedded Artificial Intelligence.</p>
+          <p>With practical experience in electrical services, industrial control systems, embedded electronics, and solar PV installations, he designs and implements both conventional and AI-driven systems—ensuring participants receive hands-on, relevant, and future-ready training.</p>
+          <p>He embodies our mission to deliver excellence, foster innovation, and create meaningful community impact.</p>
+        </div>
+      </div>
+      <!-- Grace Sammuel -->
+      <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 animate-slide-up delay-200 h-full flex flex-col">
+        <img src="{% static 'grace-samuel.jpg' %}" alt="Auwal Nasiru" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 shadow-md" loading="lazy">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Grace Samuel</h3>
+        <p class="text-brand-green font-medium mb-4">Secretary / Administration Officer</p>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>Grace brings a unique blend of administrative precision and human-centered insight to her role at Godiesluv Global Connect. With a Bachelor’s degree in Sociology and Anthropology, she understands the nuances of organizational behavior, client engagement, and cultural diversity, skills that enhance every aspect of her work.
+          </p>
+          <p> As the backbone of our administrative operations, Grace ensures that our training programs in Data Science, Data Analysis, Cybersecurity, Machine Learning, Artificial Intelligence, and essential soft skills run smoothly and efficiently. She manages scheduling, documentation, and client onboarding with professionalism and warmth, creating a seamless experience for both instructors and learners.
+          </p>
+          <p>Her sociological lens allows her to foster inclusive environments and anticipate client needs, while her organizational skills keep our fast-paced tech hub running like clockwork. Whether coordinating logistics or supporting strategic initiatives, Grace is committed to excellence and empathy in everything she does. Grace’s interdisciplinary background allows her to bridge the gap between technology and human connection, making her a standout professional in a rapidly evolving industry.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -142,37 +142,82 @@
             {% endfor %}
         </div>
 
-        <!-- Google Form Application Section -->
-        <section class="py-12">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-2xl font-bold text-center mb-6">Apply for a Course</h2>
-                <div class="mb-8 flex justify-center">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScCjcMI6NPZL6-xfcnEN3TIHRcd43swzZUTTbvk__fTdSwYWA/viewform?embedded=true" width="640" height="900" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                </div>
-                <!-- Django Formset Placeholder -->
-                {% if formset %}
-                <form method="post">
-                    {% csrf_token %}
-                    {{ formset.management_form }}
-                    <div class="space-y-4">
-                        {% for form in formset %}
-                            <div class="border p-4 rounded-lg bg-gray-100">
-                                {{ form.as_p }}
-                            </div>
-                        {% endfor %}
-                    </div>
-                    <div class="mt-6 text-center">
-                        <button type="submit" class="bg-brand-green text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300 font-medium">Submit Application</button>
-                    </div>
-                </form>
-                {% endif %}
+        {% else %}
+        <!-- Empty State -->
+        <div class="text-center py-16">
+            <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
             </div>
-        </section>
-        <!-- End Google Form Application Section -->
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">No Courses Available</h3>
+            <p class="text-gray-600">We're currently preparing our course catalog. Check back soon!</p>
+        </div>
+        {% endif %}
 
-        <!-- Pagination -->
+    </div>
+</section>
+
+<!-- Course Application Section with Embedded Google Form -->
+<section class="py-20 bg-gradient-to-br from-brand-green to-green-700">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-gold rounded-full mb-6">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+            </div>
+            <h2 class="text-4xl font-bold text-white mb-4">Apply for a Course</h2>
+            <p class="text-xl text-gray-100 max-w-2xl mx-auto">
+                Fill out the application form below to enroll in any of our courses. Our team will get back to you within 24 hours.
+            </p>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div class="bg-gradient-to-r from-brand-gold to-yellow-500 px-6 py-4">
+                <h3 class="text-xl font-semibold text-white flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                    Course Application Form
+                </h3>
+                <p class="text-white text-sm mt-1">All fields marked with * are required</p>
+            </div>
+            
+            <div class="p-2 bg-gray-50">
+                <div class="relative" style="padding-bottom: 120%; min-height: 900px;">
+                    <iframe 
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSeNFfc3FrJ_6xBFFvC-qt2Q-y3vabCN3kXi98G16U9CNIkxRA/viewform?embedded=true" 
+                        class="absolute top-0 left-0 w-full h-full rounded-lg"
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0"
+                        style="border: none;">
+                        Loading application form...
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
+                <div class="flex items-start space-x-3">
+                    <svg class="w-5 h-5 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                    <div class="text-sm text-gray-600">
+                        <p class="font-medium text-gray-900 mb-1">Need assistance?</p>
+                        <p>If you encounter any issues with the form, please contact us at <a href="mailto:info@godiesluv.com" class="text-brand-green hover:underline font-medium">info@godiesluv.com</a> or call us at <a href="tel:+2348123456789" class="text-brand-green hover:underline font-medium">+234 812 345 6789</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pagination Section -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {% if is_paginated %}
-        <div class="mt-16 flex justify-center">
+        <div class="flex justify-center">
             <nav class="flex items-center space-x-2">
                 {% if page_obj.has_previous %}
                 <a href="?page={{ page_obj.previous_page_number }}" 
@@ -201,18 +246,6 @@
                 </a>
                 {% endif %}
             </nav>
-        </div>
-        {% endif %}
-        
-        {% else %}
-        <div class="text-center py-16">
-            <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">No Courses Available</h3>
-            <p class="text-gray-600">We're currently preparing our course catalog. Check back soon!</p>
         </div>
         {% endif %}
     </div>
