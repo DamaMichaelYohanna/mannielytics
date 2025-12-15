@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm
 from courses.models import Course
 from courses.forms import CourseForm
 from core.models import Message, TeamMember
 from core.forms import TeamMemberForm
+from .forms import StyledAuthenticationForm
 
 def admin_login(request):
     """Admin login view"""
@@ -14,7 +14,7 @@ def admin_login(request):
         return redirect('dashboard:manage_courses')
     
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
+        form = StyledAuthenticationForm(request, data=request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
@@ -28,7 +28,7 @@ def admin_login(request):
         else:
             messages.error(request, 'Invalid form data.')
     else:
-        form = AuthenticationForm()
+        form = StyledAuthenticationForm()
     
     return render(request, 'dashboard/login.html', {'form': form})
 
