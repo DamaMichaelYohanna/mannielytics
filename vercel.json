@@ -1,15 +1,18 @@
 {
   "builds": [
     {
-      "src": "godiesluv_website/wsgi.py",
+      "src": "mannielytics/wsgi.py",
       "use": "@vercel/python",
-       "config": { "maxLambdaSize": "15mb", "runtime": "python3.10" }
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.10"
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "godiesluv_website/wsgi.py"
+      "dest": "mannielytics/wsgi.py"
     }
   ]
 }

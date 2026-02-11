@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./godiesluv_website/**/*.{html,js,py}",
+    "./mannielytics/**/*.{html,js,py}",
     "./core/**/*.{html,js,py}",
     "./courses/**/*.{html,js,py}",
     "./dashboard/**/*.{html,js,py}",
@@ -10,31 +10,35 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'brand-green': '#006400',
+        'brand-navy': '#001F3F',
         'brand-white': '#FFFFFF',
-        'brand-gold': '#FFB400',
+        'brand-black': '#000000',
       },
-      animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.5s ease-out',
-        'bounce-gentle': 'bounceGentle 2s infinite',
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
       },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-        bounceGentle: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
+    },
+    animation: {
+      'fade-in': 'fadeIn 0.5s ease-in-out',
+      'slide-up': 'slideUp 0.5s ease-out',
+      'bounce-gentle': 'bounceGentle 2s infinite',
+    },
+    keyframes: {
+      fadeIn: {
+        '0%': { opacity: '0' },
+        '100%': { opacity: '1' },
+      },
+      slideUp: {
+        '0%': { transform: 'translateY(20px)', opacity: '0' },
+        '100%': { transform: 'translateY(0)', opacity: '1' },
+      },
+      bounceGentle: {
+        '0%, 100%': { transform: 'translateY(0)' },
+        '50%': { transform: 'translateY(-10px)' },
       },
     },
   },
+},
   plugins: [],
 }
 

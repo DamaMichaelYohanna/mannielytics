@@ -1,323 +1,111 @@
 {% extends 'core/base.html' %}
-{%% load static }
+{% load static %}
 
-{% block title %}Our Courses - Godiesluv Global Connect Ltd.{% endblock %}
+{% block title %}Our Courses - MannieLytics{% endblock %}
 
 {% block content %}
-{% load static %}
-<!-- Hero Section -->
-<section class="hero-section text-white py-20" style="background-image: url('{% static "course.jpg" %}');">
-    <div class="hero-overlay"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="animate-fade-in">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Our Courses</h1>
-            <p class="text-xl md:text-2xl text-gray-200">Master the skills that drive the future of technology</p>
-        </div>
-    </div>
-</section>
-
-<!-- Course Categories Section -->
-<section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Course Categories</h2>
-            <p class="text-xl text-gray-600">Explore our comprehensive range of technology courses</p>
-        </div>
+<!-- Header Section -->
+<div class="bg-brand-navy py-16 md:py-24 relative overflow-hidden">
+     <div class="absolute inset-0 opacity-10 bg-[url('{% static 'pattern.png' %}')]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h1 class="text-3xl md:text-5xl font-bold text-white mb-6">Explore Our Professional Courses</h1>
+        <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-10">
+            Industry-designed tailored curriculums to launch your career in AI, Data Science, and Cybersecurity.
+        </p>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Machine Learning -->
-            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-8 text-white text-center hover:shadow-xl transition-shadow duration-300">
-                <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
+        <!-- Search/Filter (Visual Only for now, unless functionality exists) -->
+        <!-- <div class="max-w-xl mx-auto">
+            <div class="relative">
+                <form action="." on>
+                    <input type="text" placeholder="Search for a skill or course..." class="w-full pl-12 pr-4 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:bg-white/20 focus:border-white transition-all backdrop-blur-sm">
+                </form>
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <svg class="h-6 w-6 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
-                <h3 class="text-2xl font-bold mb-4">Machine Learning</h3>
-                <p class="text-blue-100 mb-6">Master algorithms, data preprocessing, and model deployment</p>
-                <span class="inline-block bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm font-medium">
-                    AI & Data Science
-                </span>
             </div>
-            
-            <!-- Artificial Intelligence -->
-            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-8 text-white text-center hover:shadow-xl transition-shadow duration-300">
-                <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Artificial Intelligence</h3>
-                <p class="text-purple-100 mb-6">Explore neural networks and cutting-edge AI technologies</p>
-                <span class="inline-block bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm font-medium">
-                    Future Technology
-                </span>
-            </div>
-            
-            <!-- Cyber Security -->
-            <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-xl p-8 text-white text-center hover:shadow-xl transition-shadow duration-300">
-                <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Cyber Security</h3>
-                <p class="text-red-100 mb-6">Learn ethical hacking and threat detection techniques</p>
-                <span class="inline-block bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm font-medium">
-                    Security & Defense
-                </span>
-            </div>
-        </div>
+        </div> -->
     </div>
-</section>
+</div>
 
-<!-- All Courses Section -->
-<section class="py-20 bg-gray-50">
+<!-- Course Grid -->
+<div class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Available Courses</h2>
-            <p class="text-xl text-gray-600">Choose from our comprehensive selection of technology courses</p>
-        </div>
-        
-        {% if courses %}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {% for course in courses %}
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 animate-slide-up hover:-translate-y-2">
-                {% if course.image %}
-                <img src="{{ course.image.url }}" alt="{{ course.title }}" class="w-full h-48 object-cover">
-                {% else %}
-                <div class="w-full h-48 bg-gradient-to-br from-brand-green to-green-700 flex items-center justify-center">
-                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                </div>
-                {% endif %}
-                
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-sm text-brand-green font-medium">{{ course.duration }}</span>
-                        {% if course.certification %}
-                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">
-                            Certificate
+            <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden group">
+                <!-- Image -->
+                <div class="h-56 relative overflow-hidden bg-gray-200">
+                    {% if course.image %}
+                        <img src="{{ course.image.url }}" alt="{{ course.title }}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    {% else %}
+                         <div class="w-full h-full bg-gradient-to-br from-brand-navy to-gray-800 flex items-center justify-center">
+                            <span class="text-white opacity-25 font-bold text-4xl">ML</span>
+                        </div>
+                    {% endif %}
+                    
+                    <!-- Badges -->
+                    <div class="absolute top-4 left-4 flex space-x-2">
+                        <span class="bg-white/90 backdrop-blur text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-sm">
+                            {{ course.level|default:"All Levels" }}
                         </span>
-                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="p-8 flex-grow flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-gray-900 leading-tight group-hover:text-brand-navy transition-colors">
+                            <a href="{% url 'courses:course_detail' course.pk %}">
+                                {{ course.title }}
+                            </a>
+                        </h3>
                     </div>
                     
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">{{ course.title }}</h3>
-                    
-                    <p class="text-gray-600 mb-4 line-clamp-3">
+                    <p class="text-gray-600 text-sm mb-6 line-clamp-3 leading-relaxed">
                         {{ course.short_description|default:course.description|truncatewords:20 }}
                     </p>
                     
-                    {% if course.features %}
-                    <div class="mb-4">
-                        <h4 class="text-sm font-medium text-gray-700 mb-2">Key Features:</h4>
-                        <ul class="space-y-1">
-                            {% for feature in course.get_features_list|slice:":3" %}
-                            <li class="flex items-center text-sm text-gray-600">
-                                <svg class="w-4 h-4 text-brand-green mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                {{ feature }}
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
-                    
-                    <div class="flex items-center justify-between">
-                        <div class="text-2xl font-bold text-brand-green">
-                            {% if course.price > 0 %}
-                            ₦{{ course.price|floatformat:0 }}
-                            {% else %}
-                            ----
-                            {% endif %}
+                    <div class="mt-auto space-y-4">
+                        <div class="flex items-center justify-between text-sm text-gray-500 border-t border-gray-100 pt-4">
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                {{ course.duration }}
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                                Mentored
+                            </div>
                         </div>
-                        <a href="{% url 'courses:course_detail' course.pk %}" 
-                           class="bg-brand-green text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors duration-300 font-medium">
-                            View Course
+                        
+                        <a href="{% url 'courses:course_detail' course.pk %}" class="block w-full text-center py-3 rounded-lg border-2 border-brand-navy text-brand-navy font-bold hover:bg-brand-navy hover:text-white transition-colors">
+                            View Curriculum
                         </a>
                     </div>
                 </div>
             </div>
+            {% empty %}
+            <div class="col-span-3 text-center py-12">
+                <div class="inline-block p-4 rounded-full bg-gray-100 mb-4">
+                    <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900">No courses available yet</h3>
+                <p class="text-gray-500 mt-2">Check back soon for our upcoming programs.</p>
+            </div>
             {% endfor %}
         </div>
-
-        {% else %}
-        <!-- Empty State -->
-        <div class="text-center py-16">
-            <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">No Courses Available</h3>
-            <p class="text-gray-600">We're currently preparing our course catalog. Check back soon!</p>
-        </div>
-        {% endif %}
-
     </div>
-</section>
+</div>
 
-<!-- Course Application Section with Embedded Google Form -->
-<section class="py-20 bg-gradient-to-br from-brand-green to-green-700">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-gold rounded-full mb-6">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-            </div>
-            <h2 class="text-4xl font-bold text-white mb-4">Apply for a Course</h2>
-            <p class="text-xl text-gray-100 max-w-2xl mx-auto">
-                Fill out the application form below to enroll in any of our courses. Our team will get back to you within 24 hours.
-            </p>
-        </div>
-        
-        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
-            <div class="bg-gradient-to-r from-brand-gold to-yellow-500 px-6 py-4">
-                <h3 class="text-xl font-semibold text-white flex items-center">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg>
-                    Course Application Form
-                </h3>
-                <p class="text-white text-sm mt-1">All fields marked with * are required</p>
-            </div>
-            
-            <div class="p-2 bg-gray-50">
-                <div class="relative" style="padding-bottom: 120%; min-height: 900px;">
-                    <iframe 
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSeNFfc3FrJ_6xBFFvC-qt2Q-y3vabCN3kXi98G16U9CNIkxRA/viewform?embedded=true" 
-                        class="absolute top-0 left-0 w-full h-full rounded-lg"
-                        frameborder="0" 
-                        marginheight="0" 
-                        marginwidth="0"
-                        style="border: none;">
-                        Loading application form...
-                    </iframe>
-                </div>
-            </div>
-            
-            <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
-                <div class="flex items-start space-x-3">
-                    <svg class="w-5 h-5 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-                    </svg>
-                    <div class="text-sm text-gray-600">
-                        <p class="font-medium text-gray-900 mb-1">Need assistance?</p>
-                        <p>If you encounter any issues with the form, please contact us at <a href="mailto:info@godiesluv.com" class="text-brand-green hover:underline font-medium">info@godiesluv.com</a> or call us at <a href="tel:+2348123456789" class="text-brand-green hover:underline font-medium">+234 812 345 6789</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Pagination Section -->
-<section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {% if is_paginated %}
-        <div class="flex justify-center">
-            <nav class="flex items-center space-x-2">
-                {% if page_obj.has_previous %}
-                <a href="?page={{ page_obj.previous_page_number }}" 
-                   class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
-                    Previous
-                </a>
-                {% endif %}
-                
-                {% for num in page_obj.paginator.page_range %}
-                    {% if page_obj.number == num %}
-                    <span class="px-3 py-2 text-sm font-medium text-brand-green bg-brand-green bg-opacity-10 border border-brand-green rounded-md">
-                        {{ num }}
-                    </span>
-                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                    <a href="?page={{ num }}" 
-                       class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
-                        {{ num }}
-                    </a>
-                    {% endif %}
-                {% endfor %}
-                
-                {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}" 
-                   class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
-                    Next
-                </a>
-                {% endif %}
-            </nav>
-        </div>
-        {% endif %}
-    </div>
-</section>
-
-<!-- Why Choose Our Courses Section -->
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Choose Our Courses?</h2>
-            <p class="text-xl text-gray-600">Discover what makes our learning experience unique</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="text-center animate-slide-up">
-                <div class="w-16 h-16 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Industry Experts</h3>
-                <p class="text-gray-600">Learn from professionals with real-world experience in top tech companies</p>
-            </div>
-            
-            <div class="text-center animate-slide-up" style="animation-delay: 0.1s;">
-                
-                <div class="w-16 h-16 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                    </svg>
-                </div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Hands-on Projects</h3>
-                <p class="text-gray-600">Build real-world projects that showcase your skills to potential employers</p>
-            </div>
-            
-            <div class="text-center animate-slide-up" style="animation-delay: 0.2s;">
-                <div class="w-16 h-16 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                </div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Certification</h3>
-                <p class="text-gray-600">Earn industry-recognized certificates upon course completion</p>
-            </div>
-            
-            <div class="text-center animate-slide-up" style="animation-delay: 0.3s;">
-                <div class="w-16 h-16 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                </div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Flexible Learning</h3>
-                <p class="text-gray-600">Study at your own pace with 24/7 access to course materials</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Call to Action -->
-<section class="py-20 bg-brand-green text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Start Learning?</h2>
-        <p class="text-xl mb-8 text-gray-200">Join thousands of students who have transformed their careers with our courses</p>
-        <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <a href="{% url 'core:contact' %}" class="bg-brand-gold text-brand-green px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-500 transform hover:scale-105 transition-all duration-300 shadow-lg">
-                Get Started Today
-            </a>
-            <a href="{% url 'core:about' %}" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-brand-green transition-all duration-300">
-                Learn More
-            </a>
-        </div>
+<!-- CTA -->
+<section class="bg-white py-20 border-t border-gray-100">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-brand-navy mb-6">Need Help Choosing?</h2>
+        <p class="text-lg text-gray-600 mb-8">
+            Our career counselors can help you find the right path based on your background and goals.
+        </p>
+        <a href="{% url 'core:contact' %}" class="inline-flex items-center px-8 py-4 bg-brand-navy text-white rounded-lg font-bold hover:bg-blue-900 transition-colors shadow-lg">
+            Talk to an Advisor
+        </a>
     </div>
 </section>
 {% endblock %}
-
