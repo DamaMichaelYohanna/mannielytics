@@ -44,3 +44,42 @@ class TeamMember(models.Model):
 
     def __str__(self) -> str:
         return f"{self.name} - {self.title}"
+
+
+class ConsultancyService(models.Model):
+    """Model for services offered by the consultancy"""
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    icon_svg = models.TextField(help_text="Raw SVG path or heroicon name", blank=True)
+    order = models.IntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['order', 'title']
+        verbose_name = 'Consultancy Service'
+        verbose_name_plural = 'Consultancy Services'
+
+    def __str__(self) -> str:
+        return self.title
+
+
+class ConsultingProject(models.Model):
+    """Model for projects completed by the consultancy"""
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    client = models.CharField(max_length=200, blank=True)
+    image = models.ImageField(upload_to='projects/', storage=MediaCloudinaryStorage())
+    link = models.URLField(blank=True, help_text="Link to the project or case study")
+    order = models.IntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+    completed_at = models.DateField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-completed_at', 'order']
+        verbose_name = 'Consulting Project'
+        verbose_name_plural = 'Consulting Projects'
+
+    def __str__(self) -> str:
+        return self.title

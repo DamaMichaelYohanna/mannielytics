@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from courses.models import Course
-from .models import Message as ContactMessage, TeamMember
+from .models import Message as ContactMessage, TeamMember, ConsultancyService, ConsultingProject
 from django.contrib.auth.decorators import user_passes_test
 
 # Create your views here.
@@ -61,3 +61,33 @@ def messages_dashboard(request):
     # Optional filters or mark-as-read can be added later
     context = {"messages_list": qs}
     return render(request, 'core/messages_dashboard.html', context)
+
+
+def consultancy(request):
+    """Consultancy page view"""
+    services = ConsultancyService.objects.filter(is_active=True)
+    projects = ConsultingProject.objects.filter(is_active=True)
+    
+    if request.method == 'POST':
+        name = request.POST.get('name') or ''
+        email = request.POST.get('email') or ''
+        subject = request.POST.get('subject') or 'Consultancy Inquiry'
+        body = request.POST.get('message') or ''
+
+        if name and email and body:
+            ContactMessage.objects.create(
+                name=name,
+                email=email,
+                subject=subject,
+                message=body,
+            )
+            messages.success(request, f'Thank you {name}! Your consultancy inquiry has been received.')
+            return redirect('core:consultancy')
+        else:
+            messages.error(request, 'Please fill in your name, email, and message.')
+
+    context = {
+        'services': services,
+        'projects': projects,
+    }
+    return render(request, 'core/consultancy.html', context)
