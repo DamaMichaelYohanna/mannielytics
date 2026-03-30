@@ -21,7 +21,7 @@
             </span>
             <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
                 Master the Future of <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-300">Technology</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-300">Data And AI</span>
             </h1>
             <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-lg mx-auto md:mx-0">
                 Join our premium training programs in AI, Machine Learning, and Cybersecurity. Hands-on projects, global mentors, and career-ready skills.
@@ -106,35 +106,89 @@
             <p class="text-gray-600 text-lg">We focus on high-demand technology fields that shape the future.</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- ML Card -->
-            <div class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Data Analysis Card -->
+            <div class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
+                <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-navy transition-colors">
+                    <svg class="w-8 h-8 text-brand-navy group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Data Analysis</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
+                    Turning raw data into strategic assets. Descriptive and inferential analysis that uncovers hidden patterns and tells the story behind the numbers.
+                </p>
+                <a href="{% url 'courses:course_list' %}" class="text-brand-navy font-semibold hover:tracking-wide transition-all inline-flex items-center text-sm">Learn More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+            </div>
+
+            <!-- ML/AI Card -->
+            <div class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
                 <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-navy transition-colors">
                     <svg class="w-8 h-8 text-brand-navy group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Machine Learning</h3>
-                <p class="text-gray-600 leading-relaxed mb-4">Master algorithms that learn from data. predictive modeling, deep learning, and neural networks.</p>
-                <a href="{% url 'courses:course_list' %}" class="text-brand-navy font-semibold hover:tracking-wide transition-all inline-flex items-center">Learn More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">ML/AI</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
+                    Engineering the next generation of intelligent systems. Scalable AI solutions from predictive modeling to advanced "Agentic Systems."
+                </p>
+                <a href="{% url 'courses:course_list' %}" class="text-brand-navy font-semibold hover:tracking-wide transition-all inline-flex items-center text-sm">Learn More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
             </div>
 
-            <!-- AI Card -->
-            <div class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <!-- Data Engineering Card -->
+            <div class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
                 <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-navy transition-colors">
                     <svg class="w-8 h-8 text-brand-navy group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Artificial Intelligence</h3>
-                <p class="text-gray-600 leading-relaxed mb-4">Explore the frontier of AI. From NLP to computer vision and autonomous systems.</p>
-                <a href="{% url 'courses:course_list' %}" class="text-brand-navy font-semibold hover:tracking-wide transition-all inline-flex items-center">Learn More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Data Engineering</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
+                    Building the backbone of data-driven organizations. Design and management of robust data pipelines and secure architectures.
+                </p>
+                <a href="{% url 'courses:course_list' %}" class="text-brand-navy font-semibold hover:tracking-wide transition-all inline-flex items-center text-sm">Learn More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
             </div>
 
-            <!-- Security Card -->
-            <div class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <!-- EdTech Card -->
+            <div class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
                 <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-navy transition-colors">
-                    <svg class="w-8 h-8 text-brand-navy group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    <svg class="w-8 h-8 text-brand-navy group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Cybersecurity</h3>
-                <p class="text-gray-600 leading-relaxed mb-4">Protect the digital world. Ethical hacking, network defense, and security ops.</p>
-                <a href="{% url 'courses:course_list' %}" class="text-brand-navy font-semibold hover:tracking-wide transition-all inline-flex items-center">Learn More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">EdTech</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
+                    Bridging the gap between theory and industry. Redefining technical education through industry-aligned curricula and hybrid learning.
+                </p>
+                <a href="{% url 'courses:course_list' %}" class="text-brand-navy font-semibold hover:tracking-wide transition-all inline-flex items-center text-sm">Learn More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vision & Mission Section -->
+<section class="py-24 bg-brand-navy relative overflow-hidden">
+    <!-- Abstract Background -->
+    <div class="absolute inset-0 opacity-5">
+        <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0 100 L100 0 L100 100 Z" fill="white" />
+        </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Vision -->
+            <div class="bg-white/10 p-8 md:p-12 rounded-3xl backdrop-blur-md border border-white/20 hover:bg-white/15 transition-all duration-300 group">
+                <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                </div>
+                <h2 class="text-3xl font-bold text-white mb-6">Our Vision</h2>
+                <p class="text-blue-100 text-lg leading-relaxed">
+                    To be the global benchmark for data education, empowering the next generation of African tech talent. We aspire to make world-class tech education entirely free in the future through strategic global partnerships.
+                </p>
+            </div>
+            
+            <!-- Mission -->
+            <div class="bg-white/10 p-8 md:p-12 rounded-3xl backdrop-blur-md border border-white/20 hover:bg-white/15 transition-all duration-300 group">
+                <div class="w-16 h-16 bg-teal-500/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h2 class="text-3xl font-bold text-white mb-6">Our Mission</h2>
+                <p class="text-blue-100 text-lg leading-relaxed">
+                    To provide world-class, practical data training that evolves with the speed of AI, ensuring our students are not just employable, but indispensable.
+                </p>
             </div>
         </div>
     </div>
@@ -142,6 +196,7 @@
 
 <!-- Workshop CTA Section -->
 <section class="py-24 bg-gray-50 relative">
+    <!-- TODO -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-gradient-to-r from-brand-navy to-blue-900 rounded-3xl overflow-hidden shadow-2xl relative">
             <div class="absolute inset-0 opacity-20 bg-[url('{% static 'pattern.png' %}')]"></div> <!-- Optional Pattern -->
@@ -198,62 +253,13 @@
                     </p>
                 </div>
                 
-                <!-- Right: Course Details Card -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg relative overflow-hidden">
-                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-yellow-300 rounded-full opacity-20"></div>
-                    <div class="relative z-10">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-bold text-gray-900">Course Details</h3>
-                            <div class="text-right">
-                                <div class="inline-flex items-center justify-center rounded-full bg-brand-navy text-white text-xs font-bold px-4 py-1 shadow">
-                                    N35k <span class="mx-1 text-[10px] opacity-80">( $25 )</span>
-                                </div>
-                                <div class="mt-1 text-[10px] font-semibold text-red-500 bg-red-50 inline-flex px-2 py-0.5 rounded-full">
-                                    75% OFF
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="grid md:grid-cols-2 gap-6 text-sm">
-                            <div>
-                                <h4 class="text-xs font-semibold tracking-wide text-gray-500 uppercase mb-2">Inside the course</h4>
-                                <ul class="space-y-1 text-gray-700">
-                                    <li>• Theory & hands‑on learning</li>
-                                    <li>• Real world problems & projects</li>
-                                    <li>• Weekends only</li>
-                                    <li>• Access to DataCamp (Cohort 1.0)</li>
-                                    <li>• Access to LMS</li>
-                                    <li>• 24/7 learning support</li>
-                                    <li>• Recap quizzes & certificates</li>
-                                    <li>• Internship & mentorship</li>
-                                    <li>• Webinars and career support</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-semibold tracking-wide text-gray-500 uppercase mb-2">Brochure</h4>
-                                <ul class="space-y-1 text-gray-700">
-                                    <li>• Introduction to Data Analysis</li>
-                                    <li>• Python Basics for Data Analysis</li>
-                                    <li>• Pandas and NumPy</li>
-                                    <li>• Data visualization (matplotlib, seaborn, plotly)</li>
-                                    <li>• Exploratory Data Analysis with Python</li>
-                                    <li>• Data Analysis with SQL</li>
-                                    <li>• SQL + Python combo</li>
-                                    <li>• AI‑Assisted Data Analysis</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-6">
-                            <p class="text-xs font-semibold text-amber-600 mb-2 uppercase tracking-wide">
-                                Starts March • Limited seats
-                            </p>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZ9lrJvrUNDLQ3dy5J0TFS1gN7SrquaKXtA2x0wppXOf8IOg/viewform"
-                               target="_blank"
-                               class="block w-full text-center py-4 bg-brand-navy text-white font-bold rounded-xl hover:bg-blue-900 transition-all shadow-md">
-                                Register Now
-                            </a>
-                        </div>
+                <!-- Right: Course Flyer Image -->
+                <div class="relative z-10 group animate-fade-in">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-teal-300 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                    <div class="relative bg-white rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 transform hover:scale-[1.02]">
+                        <img src="{% static 'programme.jpeg' %}" 
+                             alt="Data Analysis Workshop Flyer" 
+                             class="w-full h-auto object-cover">
                     </div>
                 </div>
             </div>

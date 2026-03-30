@@ -4,107 +4,195 @@
 {% block title %}Terms & Conditions - MannieLytics{% endblock %}
 
 {% block content %}
-<section class="hero-section text-white py-20" style="background-image: url('{% static 'about-head.jpg' %}');">
-    <div class="hero-overlay"></div>
-    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="animate-fade-in">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">Terms & Conditions</h1>
-            <p class="text-xl md:text-2xl text-gray-200">Please read our policies before enrolling in any course</p>
-        </div>
+<!-- Hero Header -->
+<div class="bg-brand-navy relative overflow-hidden pt-32 pb-20">
+    <!-- Abstract Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+        <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white" />
+        </svg>
     </div>
-</section>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <span class="inline-block py-1 px-3 rounded-full bg-blue-900/50 border border-blue-700 text-blue-100 text-sm font-semibold mb-6 animate-fade-in">
+            Legal & Policies
+        </span>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 animate-fade-in">
+            Terms & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-300">Conditions</span>
+        </h1>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto animate-fade-in">
+            Please read these terms carefully before enrolling in our courses or using our services. Last Updated: March 2026.
+        </p>
+    </div>
+</div>
 
-<section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-12 text-center">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Policies</h2>
-            <p class="text-xl text-gray-600">These terms govern your participation in our courses and programs.</p>
-        </div>
-        <div class="space-y-8">
-            <div class="bg-gray-100 rounded-xl p-6 shadow animate-fade-in">
-                <h3 class="text-xl font-semibold text-brand-navy mb-2">1. Enrollment & Admission</h3>
-                <ul class="list-disc ml-6 text-gray-700">
-                    <li>Admission is granted on a first-come, first-served basis or after eligibility review</li>
-                    <li>Applicants must provide accurate personal and academic details</li>
-                    <li>The organization reserves the right to deny admission without explanation</li>
-                </ul>
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row gap-12">
+            
+            <!-- Sidebar Navigation (Desktop) -->
+            <div class="hidden lg:block w-1/4 sticky top-32 h-fit">
+                <nav class="space-y-1">
+                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-3">Sections</h4>
+                    <a href="#admission" class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 rounded-lg transition-all">1. Admission</a>
+                    <a href="#format" class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 rounded-lg transition-all">2. Course Format</a>
+                    <a href="#fees" class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 rounded-lg transition-all">3. Fees & Payment</a>
+                    <a href="#completion" class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 rounded-lg transition-all">4. Completion</a>
+                    <a href="#ip" class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 rounded-lg transition-all">5. Intellectual Property</a>
+                    <a href="#conduct" class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 rounded-lg transition-all">6. Code of Conduct</a>
+                    <a href="#technical" class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 rounded-lg transition-all">7. Technical Requirements</a>
+                    <a href="#privacy" class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 rounded-lg transition-all">8. Privacy</a>
+                    <a href="#cancellation" class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 rounded-lg transition-all">9. Cancellation</a>
+                    <a href="#liability" class="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 rounded-lg transition-all">10. Liability</a>
+                </nav>
             </div>
-            <div class="bg-gray-100 rounded-xl p-6 shadow animate-fade-in">
-                <h3 class="text-xl font-semibold text-brand-navy mb-2">2. Course Format & Access</h3>
-                <ul class="list-disc ml-6 text-gray-700">
-                    <li>Applicants may choose between fully online and hybrid formats</li>
-                    <li>Online access includes recorded lectures, downloadable materials, and live sessions</li>
-                    <li>In-person attendance may be required for specific workshops or assessments</li>
-                    <li>Switching formats mid-course may require approval or incur a fee</li>
-                </ul>
+
+            <!-- Content Area -->
+            <div class="lg:w-3/4 max-w-3xl">
+                <div class="prose prose-blue max-w-none space-y-12 text-gray-600">
+                    
+                    <div id="admission" class="scroll-mt-32">
+                        <h2 class="text-2xl font-bold text-brand-navy mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-blue-100 text-brand-navy rounded-lg flex items-center justify-center text-sm mr-3">01</span>
+                            Enrollment & Admission
+                        </h2>
+                        <ul class="space-y-3 list-none pl-0">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Admission is granted on a first-come, first-served basis or after eligibility review to ensure high-quality learning cohorts.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Applicants must provide accurate personal and academic details during registration.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>MannieLytics Ltd. reserves the right to deny admission without explanation to protect program integrity.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="format" class="scroll-mt-32">
+                        <h2 class="text-2xl font-bold text-brand-navy mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-blue-100 text-brand-navy rounded-lg flex items-center justify-center text-sm mr-3">02</span>
+                            Course Format & Access
+                        </h2>
+                        <ul class="space-y-3 list-none pl-0">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Applicants may choose between fully online and hybrid formats as per course availability.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Online access includes recorded lectures, downloadable materials, and live interactive sessions via our LMS.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>In-person attendance may be required for specific hands-on workshops or final assessments.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="fees" class="scroll-mt-32">
+                        <h2 class="text-2xl font-bold text-brand-navy mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-blue-100 text-brand-navy rounded-lg flex items-center justify-center text-sm mr-3">03</span>
+                            Fees & Payment
+                        </h2>
+                        <ul class="space-y-3 list-none pl-0">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Full payment is due before the course start date unless an installment plan has been explicitly agreed upon.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Refund Policy: A partial refund is available for withdrawals before the registration deadline; no refunds are provided once the cohort begins.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="completion" class="scroll-mt-32">
+                        <h2 class="text-2xl font-bold text-brand-navy mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-blue-100 text-brand-navy rounded-lg flex items-center justify-center text-sm mr-3">04</span>
+                            Course Completion & Certification
+                        </h2>
+                        <ul class="space-y-3 list-none pl-0">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Certificates are awarded only upon successful completion of all core modules and Capstone projects.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>A minimum attendance rate of 80% is required to be eligible for certification.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="ip" class="scroll-mt-32">
+                        <h2 class="text-2xl font-bold text-brand-navy mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-blue-100 text-brand-navy rounded-lg flex items-center justify-center text-sm mr-3">05</span>
+                            Intellectual Property
+                        </h2>
+                        <ul class="space-y-3 list-none pl-0">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>All course materials, including videos and code, are proprietary and intended for personal educational use only.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Students may not record sessions, reproduce, share, or resell any content from MannieLytics workshops.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Additional sections would follow same pattern -->
+                    <div id="conduct" class="scroll-mt-32">
+                        <h2 class="text-2xl font-bold text-brand-navy mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-blue-100 text-brand-navy rounded-lg flex items-center justify-center text-sm mr-3">06</span>
+                            Code of Conduct
+                        </h2>
+                        <p class="mb-4">Respectful behavior is expected in all interactions—virtual or physical. Plagiarism, disruptive behavior, or harassment will result in immediate expulsion without refund.</p>
+                    </div>
+
+                    <div id="privacy" class="scroll-mt-32">
+                        <h2 class="text-2xl font-bold text-brand-navy mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-blue-100 text-brand-navy rounded-lg flex items-center justify-center text-sm mr-3">08</span>
+                            Privacy & Data Protection
+                        </h2>
+                        <p>We collect personal data solely for administration and career support. We do not share your data with third parties without your explicit consent.</p>
+                    </div>
+
+                    <div id="liability" class="scroll-mt-32">
+                         <h2 class="text-2xl font-bold text-brand-navy mb-4 flex items-center">
+                            <span class="w-8 h-8 bg-blue-100 text-brand-navy rounded-lg flex items-center justify-center text-sm mr-3">10</span>
+                            Limitation of Liability
+                        </h2>
+                        <ul class="space-y-3 list-none pl-0">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>While we provide career support and networking opportunities, we do not guarantee job placement.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Students are solely responsible for their own learning outcomes and application of skills learned.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="mt-20 p-8 bg-blue-50 rounded-2xl border border-blue-100">
+                    <h3 class="text-xl font-bold text-brand-navy mb-4">Have Questions?</h3>
+                    <p class="text-gray-600 mb-6">If you need clarification on any of our policies, our team is here to help.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="{% url 'core:contact' %}" class="px-6 py-3 bg-brand-navy text-white font-semibold rounded-lg hover:bg-blue-900 transition-all">Contact Us</a>
+                        <button onclick="window.print()" class="px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-all flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                            Print Terms
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="bg-gray-100 rounded-xl p-6 shadow animate-fade-in">
-                <h3 class="text-xl font-semibold text-brand-navy mb-2">3. Fees & Payment</h3>
-                <ul class="list-disc ml-6 text-gray-700">
-                    <li>Full payment due before course start unless installment plans are offered</li>
-                    <li>Accepted payment methods: credit/debit card, bank transfer, or digital wallets</li>
-                    <li>Refund policy: partial refund if withdrawal occurs before a set deadline; no refund after the course begins</li>
-                    <li>Discounts may apply for early registration, group enrollment, or referrals</li>
-                </ul>
-            </div>
-            <div class="bg-gray-100 rounded-xl p-6 shadow animate-fade-in">
-                <h3 class="text-xl font-semibold text-brand-navy mb-2">4. Course Completion & Certification</h3>
-                <ul class="list-disc ml-6 text-gray-700">
-                    <li>Certificate awarded upon successful completion of all modules and assessments</li>
-                    <li>Minimum attendance or participation required is 80% of sessions</li>
-                    <li>Online students must submit assignments and attend live sessions to qualify</li>
-                    <li>No certificate for incomplete or failed attempts</li>
-                </ul>
-            </div>
-            <div class="bg-gray-100 rounded-xl p-6 shadow animate-fade-in">
-                <h3 class="text-xl font-semibold text-brand-navy mb-2">5. Intellectual Property & Usage</h3>
-                <ul class="list-disc ml-6 text-gray-700">
-                    <li>All course materials are proprietary and for personal use only</li>
-                    <li>Students may not reproduce, share, or resell content</li>
-                    <li>Projects submitted may be used for promotional purposes with consent</li>
-                </ul>
-            </div>
-            <div class="bg-gray-100 rounded-xl p-6 shadow animate-fade-in">
-                <h3 class="text-xl font-semibold text-brand-navy mb-2">6. Code of Conduct</h3>
-                <ul class="list-disc ml-6 text-gray-700">
-                    <li>Respectful behavior expected in all interactions (forums, live sessions, in-person classes)</li>
-                    <li>Plagiarism, cheating, or disruptive behavior may result in expulsion</li>
-                    <li>Online platforms monitored for compliance with conduct policies</li>
-                </ul>
-            </div>
-            <div class="bg-gray-100 rounded-xl p-6 shadow animate-fade-in">
-                <h3 class="text-xl font-semibold text-brand-navy mb-2">7. Technical Requirements (for Online Students)</h3>
-                <ul class="list-disc ml-6 text-gray-700">
-                    <li>Stable internet connection, webcam, and microphone required</li>
-                    <li>Recommended browser and software specifications provided</li>
-                    <li>Organization is not responsible for technical issues on the student’s side</li>
-                </ul>
-            </div>
-            <div class="bg-gray-100 rounded-xl p-6 shadow animate-fade-in">
-                <h3 class="text-xl font-semibold text-brand-navy mb-2">8. Privacy & Data Protection</h3>
-                <ul class="list-disc ml-6 text-gray-700">
-                    <li>Personal data collected for course administration and communication</li>
-                    <li>Data may be used for internal analytics or marketing (with opt-out options)</li>
-                    <li>No third-party sharing without consent</li>
-                </ul>
-            </div>
-            <div class="bg-gray-100 rounded-xl p-6 shadow animate-fade-in">
-                <h3 class="text-xl font-semibold text-brand-navy mb-2">9. Cancellation & Rescheduling</h3>
-                <ul class="list-disc ml-6 text-gray-700">
-                    <li>Organization may cancel or reschedule sessions due to unforeseen circumstances</li>
-                    <li>Students will be notified in advance and offered alternatives</li>
-                    <li>In-person classes may shift online if necessary (e.g., public health concerns)</li>
-                </ul>
-            </div>
-            <div class="bg-gray-100 rounded-xl p-6 shadow animate-fade-in">
-                <h3 class="text-xl font-semibold text-brand-navy mb-2">10. Limitation of Liability</h3>
-                <ul class="list-disc ml-6 text-gray-700">
-                    <li>No guarantees of job placement or career advancement.</li>
-                    <li>However, a special session will be dedicated to job search and possible advancement</li>
-                    <li>Organization not liable for personal loss, injury, or technical failure</li>
-                    <li>Students are responsible for their own learning outcomes</li>
-                </ul>
-            </div>
+            
         </div>
     </div>
 </section>
