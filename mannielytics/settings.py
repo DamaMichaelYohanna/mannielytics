@@ -33,7 +33,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'change-me')
 
 DEBUG = os.getenv('DEBUG', 'True').lower() in ('1', 'true', 'yes', 'on')
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
+ALLOWED_HOSTS = ["mannielytics.com", "www.mannielytics.com", "mannielytics.vercel.app"]
 
 # Media files (Uploaded files) via Cloudinary
 MEDIA_URL = '/media/'  # This is just a prefix, Cloudinary will handle the actual URL
