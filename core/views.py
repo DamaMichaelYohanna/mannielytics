@@ -91,3 +91,15 @@ def consultancy(request):
         'projects': projects,
     }
     return render(request, 'core/consultancy.html', context)
+
+
+def hackathon(request):
+    """KaDAI Hackathon registration landing page view"""
+    google_form_embed_url = "https://docs.google.com/forms/d/e/1FAIpQLSe2X_o58Hd6EpByTvZL4KxhWYlRHHNcb16iV06GK70Q8V5dyw/viewform?embedded=true"
+    google_form_direct_url = "https://docs.google.com/forms/d/e/1FAIpQLSe2X_o58Hd6EpByTvZL4KxhWYlRHHNcb16iV06GK70Q8V5dyw/viewform?usp=header"
+    
+    context = {
+        'google_form_embed_url': google_form_embed_url,
+        'google_form_direct_url': google_form_direct_url,
+    }
+    return render(request, 'core/hackathon.html', context)

@@ -84,6 +84,10 @@
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="{% url 'core:home' %}" class="{% if request.resolver_match.view_name == 'core:home' %}text-brand-navy font-bold border-b-2 border-brand-navy{% else %}text-gray-700 hover:text-brand-navy font-medium border-b-2 border-transparent{% endif %} text-sm transition-all pb-1">Home</a>
                     <a href="{% url 'courses:course_list' %}" class="{% if request.resolver_match.app_name == 'courses' %}text-brand-navy font-bold border-b-2 border-brand-navy{% else %}text-gray-700 hover:text-brand-navy font-medium border-b-2 border-transparent{% endif %} text-sm transition-all pb-1">Courses</a>
+                    <a href="{% url 'core:hackathon' %}" class="{% if request.resolver_match.view_name == 'core:hackathon' %}text-blue-600 font-bold border-b-2 border-blue-600{% else %}text-gray-700 hover:text-blue-600 font-medium border-b-2 border-transparent{% endif %} text-sm transition-all pb-1 flex items-center gap-1.5">
+                        <span>Hackathon</span>
+                        <span class="px-1.5 py-0.5 text-[10px] uppercase font-bold tracking-wider rounded bg-gradient-to-r from-blue-600 to-indigo-600 text-white animate-pulse">Live</span>
+                    </a>
                     <a href="{% url 'core:about' %}" class="{% if request.resolver_match.view_name == 'core:about' %}text-brand-navy font-bold border-b-2 border-brand-navy{% else %}text-gray-700 hover:text-brand-navy font-medium border-b-2 border-transparent{% endif %} text-sm transition-all pb-1">About Us</a>
                     <a href="{% url 'core:consultancy' %}" class="{% if request.resolver_match.view_name == 'core:consultancy' %}text-brand-navy font-bold border-b-2 border-brand-navy{% else %}text-gray-700 hover:text-brand-navy font-medium border-b-2 border-transparent{% endif %} text-sm transition-all pb-1">Consultancy</a>
                     <a href="{% url 'core:contact' %}" class="{% if request.resolver_match.view_name == 'core:contact' %}text-brand-navy font-bold border-b-2 border-brand-navy{% else %}text-gray-700 hover:text-brand-navy font-medium border-b-2 border-transparent{% endif %} text-sm transition-all pb-1">Contact</a>
@@ -118,9 +122,14 @@
             <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
                 <a href="{% url 'core:home' %}" class="block px-3 py-3 rounded-md text-base {% if request.resolver_match.view_name == 'core:home' %}font-bold text-brand-navy bg-gray-50 border-l-4 border-brand-navy{% else %}font-medium text-gray-700 hover:text-brand-navy hover:bg-gray-50{% endif %} transition-all">Home</a>
                 <a href="{% url 'courses:course_list' %}" class="block px-3 py-3 rounded-md text-base {% if request.resolver_match.app_name == 'courses' %}font-bold text-brand-navy bg-gray-50 border-l-4 border-brand-navy{% else %}font-medium text-gray-700 hover:text-brand-navy hover:bg-gray-50{% endif %} transition-all">Courses</a>
+                <a href="{% url 'core:hackathon' %}" class="block px-3 py-3 rounded-md text-base {% if request.resolver_match.view_name == 'core:hackathon' %}font-bold text-blue-600 bg-blue-50 border-l-4 border-blue-600{% else %}font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50{% endif %} transition-all flex items-center justify-between">
+                    <span>KaDAI Hackathon</span>
+                    <span class="px-2 py-0.5 text-xs font-bold rounded bg-blue-600 text-white">New</span>
+                </a>
                 <a href="{% url 'core:about' %}" class="block px-3 py-3 rounded-md text-base {% if request.resolver_match.view_name == 'core:about' %}font-bold text-brand-navy bg-gray-50 border-l-4 border-brand-navy{% else %}font-medium text-gray-700 hover:text-brand-navy hover:bg-gray-50{% endif %} transition-all">About</a>
                 <a href="{% url 'core:consultancy' %}" class="block px-3 py-3 rounded-md text-base {% if request.resolver_match.view_name == 'core:consultancy' %}font-bold text-brand-navy bg-gray-50 border-l-4 border-brand-navy{% else %}font-medium text-gray-700 hover:text-brand-navy hover:bg-gray-50{% endif %} transition-all">Consultancy</a>
                 <a href="{% url 'core:contact' %}" class="block px-3 py-3 rounded-md text-base {% if request.resolver_match.view_name == 'core:contact' %}font-bold text-brand-navy bg-gray-50 border-l-4 border-brand-navy{% else %}font-medium text-gray-700 hover:text-brand-navy hover:bg-gray-50{% endif %} transition-all">Contact</a>
+
                 {% if user.is_authenticated %}
                     {% if user.is_staff %}
                         <a href="{% url 'dashboard:manage_courses' %}" class="block px-3 py-3 rounded-md text-base font-medium text-brand-navy bg-gray-50 mt-2">Dashboard</a>
@@ -193,13 +202,14 @@
                     <h4 class="text-lg font-semibold mb-6">Explore</h4>
                     <ul class="space-y-3 text-sm text-gray-300">
                         <li><a href="{% url 'core:home' %}" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="{% url 'core:hackathon' %}" class="hover:text-blue-400 font-semibold transition-colors flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span>KaDAI Hackathon</a></li>
                         <li><a href="{% url 'courses:course_list' %}" class="hover:text-white transition-colors">Courses & Workshops</a></li>
                         <li><a href="{% url 'core:about' %}" class="hover:text-white transition-colors">About Our Team</a></li>
                         <li><a href="{% url 'core:consultancy' %}" class="hover:text-white transition-colors">Consultancy</a></li>
                         <li><a href="{% url 'core:contact' %}" class="hover:text-white transition-colors">Get in Touch</a></li>
-                        <li><a href="{% url 'dashboard:admin_login' %}" class="hover:text-white transition-colors">Partner Login</a>
-                        </li>
+                        <li><a href="{% url 'dashboard:admin_login' %}" class="hover:text-white transition-colors">Partner Login</a></li>
                     </ul>
+
                 </div>
                 
                 <!-- Contact -->
