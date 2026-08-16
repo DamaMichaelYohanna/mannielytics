@@ -242,9 +242,10 @@
                 </div>
             </div>
             
-            <div class="border-t border-blue-900 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+            <div class="border-t border-blue-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
                 <p>&copy; {% now "Y" %} MannieLytics Ltd. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
+                <p class="text-xs sm:text-sm">Powered by <a href="https://damasoftwaresolution.com.ng" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 font-medium transition-colors">Dama Technologies LTD</a></p>
+                <div class="flex space-x-6">
                     <a href="{% url 'core:terms' %}" class="hover:text-white transition-colors">Terms of Service</a>
                     <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
                 </div>
